@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddMemory extends AppCompatActivity {
 
@@ -29,6 +30,7 @@ public class AddMemory extends AppCompatActivity {
                 MainActivity.memories.add(memory);
                 titleInput.setText("");
                 descriptionInput.setText("");
+                Toast.makeText(AddMemory.this, "Salvo", Toast.LENGTH_SHORT);
             }
         });
     }
