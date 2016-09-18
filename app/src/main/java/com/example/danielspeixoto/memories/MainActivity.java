@@ -1,7 +1,8 @@
 package com.example.danielspeixoto.memories;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,17 +13,16 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static ArrayList<Memory> memories;
     private EditText input;
     private Button add;
     private ListView listMemories;
-    private ArrayList<String> memories;
     private ArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        input = (EditText) findViewById(R.id.input);
         add = (Button) findViewById(R.id.add);
         listMemories = (ListView) findViewById(R.id.listMemories);
         memories = new ArrayList<>();
@@ -30,10 +30,14 @@ public class MainActivity extends AppCompatActivity {
         listMemories.setAdapter(adapter);
     }
 
-    public void putOnList (View view) {
-        String message = input.getText().toString();
-        memories.add(message);
+    @Override
+    protected void onResume() {
+        super.onResume();
         adapter.notifyDataSetChanged();
-        input.setText("");
+    }
+
+    public void putOnList (View view) {
+        Intent i = new Intent(MainActivity.this, AddMemory.class);
+        startActivity(i);
     }
 }

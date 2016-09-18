@@ -11,26 +11,20 @@
     tools:context="com.example.danielspeixoto.memories.MainActivity">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/input"
-            android:hint="Qual a memória?" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
             android:id="@+id/add"
-            android:onClick="putOnList" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="putOnList"
+            android:text="+" />
     </LinearLayout>
 
     <ListView
+        android:id="@+id/listMemories"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listMemories" />
+        android:layout_height="wrap_content" />
 </LinearLayout>
