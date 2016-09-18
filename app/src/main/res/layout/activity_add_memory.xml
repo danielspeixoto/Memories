@@ -39,7 +39,6 @@
         android:id="@+id/saveMemory"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:onClick="saveMemory"
         android:text="Salvar" />
 
 </LinearLayout>

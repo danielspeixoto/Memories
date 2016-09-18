@@ -19,14 +19,17 @@ public class AddMemory extends AppCompatActivity {
         titleInput = (EditText) findViewById(R.id.titleInput);
         descriptionInput = (EditText) findViewById(R.id.descriptionInput);
         saveMemory = (Button) findViewById(R.id.saveMemory);
-    }
 
-    public void saveMemory(View view) {
-        String title = titleInput.getText().toString();
-        String description = descriptionInput.getText().toString();
-        Memory memory = new Memory(title, description);
-        MainActivity.memories.add(memory);
-        titleInput.setText("");
-        descriptionInput.setText("");
+        saveMemory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = titleInput.getText().toString();
+                String description = descriptionInput.getText().toString();
+                Memory memory = new Memory(title, description);
+                MainActivity.memories.add(memory);
+                titleInput.setText("");
+                descriptionInput.setText("");
+            }
+        });
     }
 }

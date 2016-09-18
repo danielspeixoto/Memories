@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,17 @@ public class MainActivity extends AppCompatActivity {
         memories = new ArrayList<>();
         adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, memories);
         listMemories.setAdapter(adapter);
+
+        listMemories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(MainActivity.this, InfoActivity.class);
+                Memory memory = memories.get(position);
+                i.putExtra("title", memory.getTitle());
+                i.putExtra("description", memory.getDescription());
+                startActivity(i);
+            }
+        });
     }
 
     @Override
