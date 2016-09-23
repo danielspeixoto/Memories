@@ -10,18 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.danielspeixoto.memories.MainActivity">
 
-    <LinearLayout
+    <Button
+        android:id="@+id/add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/add"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="putOnList"
-            android:text="+" />
-    </LinearLayout>
+        android:onClick="putOnList"
+        android:text="+" />
 
     <ListView
         android:id="@+id/listMemories"
